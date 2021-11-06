@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.widget = QtWidgets.QWidget(self.centralwidget)
         self.widget.setGeometry(QtCore.QRect(0, 0, 511, 731))
         self.widget.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-image: url(./keli.png);")
+"border-image: url(./img/keli.png);")
         self.widget.setObjectName("widget")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(520, 60, 121, 31))
@@ -81,10 +81,10 @@ class Ui_MainWindow(object):
         label,result = classify_sentiment(sentence,self.model,self.tokenizer)
         self.outputEdit.setText(result)
         if label == True:
-            jpg = QtGui.QPixmap("./pos.jpeg").scaled(self.result_widget.width(), self.result_widget.height())
+            jpg = QtGui.QPixmap("./img/pos.jpeg").scaled(self.result_widget.width(), self.result_widget.height())
             self.result_widget.setPixmap(jpg)
         else:
-            jpg = QtGui.QPixmap("./neg.jpg").scaled(self.result_widget.width(), self.result_widget.height())
+            jpg = QtGui.QPixmap("./img/neg.jpg").scaled(self.result_widget.width(), self.result_widget.height())
             self.result_widget.setPixmap(jpg)
         return
     def retranslateUi(self, MainWindow):
