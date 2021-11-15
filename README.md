@@ -31,17 +31,36 @@
 
 2. 安装环境
 
-   Python==3.6
-
-   Pytorch==1.7.1(CPU,GPU版本均可)
-
+   pandas==1.3.2
+   PyQt5==5.15.6
+   tensorboardX==2.4
+   torch==1.9.0
+   tqdm==4.62.2
    transformers==3.0.1
 
-3. pip换源
+3. pip安装
 
-   方法：https://mirrors.bfsu.edu.cn/help/pypi/
+   代码提供了requirements.txt，可以直接安装
 
-## 四.网络介绍
+   pip install -r requirements.txt
+
+
+
+## 四.代码Demo命令
+
+1. 可视化Demo运行指令：
+
+   python main.py
+
+2. 训练运行指令：
+
+   python train.py
+
+   部分超参可以在arguments.py修改，也可以在python train.py之后加参数调节。
+
+   
+
+## 五.网络介绍
 
 ### **Self-supervised Learning**
 
@@ -251,7 +270,7 @@ BERT到底是怎么用的呢？我们将给出4个关于BERT的应用案例，
 
 ![image-20211031151339966](README/image-20211031151339966.png)
 
-## 五、数据来源与预训练模型来源
+## 六、数据来源与预训练模型来源
 
 #### 1. 数据集来源
 
@@ -271,7 +290,7 @@ BERT到底是怎么用的呢？我们将给出4个关于BERT的应用案例，
 
 同理，由于谷歌官方发布的`BERT-base, Chinese`中，中文是以**字**为粒度进行切分，没有考虑到传统NLP中的中文分词（CWS）。 我们将全词Mask的方法应用在了中文中，使用了中文维基百科（包括简体和繁体）进行训练，并且使用了[哈工大LTP](http://ltp.ai/)作为分词工具，即对组成同一个**词**的汉字全部进行Mask。
 
-### 六、可视化Demo
+### 七、可视化Demo展示
 
 在训练好后，为了方便使用，利用QT开发一界面，效果如下：
 
@@ -279,11 +298,17 @@ BERT到底是怎么用的呢？我们将给出4个关于BERT的应用案例，
 
 ![image-20211031151041375](README/image-20211031151041375.png)
 
-## 七.项目文件介绍
+## 八.项目文件介绍
 
 - data里存放处理好的数据集
 - logs里为tensorboard日志
 - models为训练好的模型
 - Pre_train_Model为预训练模型
-- main.py为QT的demo代码
 - train.py为训练代码
+- dataset.py文件实现SSTDataset类。
+- evaluate.py文件用来验证模型效果。
+- main.py文件实现模型UI，图形界面交互。
+- modeling.py实现LSTM和CNN等模型建模
+- arguments.py实现模型训练命令行交互。
+- analyze.py用来用户测试。
+
